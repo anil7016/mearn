@@ -1,12 +1,13 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { increment, selectCount } from "./productListSlice";
+import { fetchAllProductsAsync,fetchProductsByFiltersAsync, selectAllproduct  } from "../productSlice";
 //import { Fragment, useState } from 'react'
 import { Dialog, Disclosure, Menu, Transition } from "@headlessui/react";
 import {
   XMarkIcon,
   ChevronLeftIcon,
   ChevronRightIcon,
+  StarIcon,
 } from "@heroicons/react/24/outline";
 import {
   ChevronDownIcon,
@@ -50,38 +51,25 @@ const items = [
 
 const filters = [
   {
-    id: "color",
-    name: "Color",
+    id: "brands",
+    name: "Brands",
     options: [
-      { value: "white", label: "White", checked: false },
-      { value: "beige", label: "Beige", checked: false },
+      { value: "Samsung", label: "Samsung", checked: false },
+      { value: "Microsoft Surface", label: "Microsoft Surface", checked: false },
       { value: "blue", label: "Blue", checked: true },
-      { value: "brown", label: "Brown", checked: false },
-      { value: "green", label: "Green", checked: false },
-      { value: "purple", label: "Purple", checked: false },
+      { value: "Infinix", label: "Infinix", checked: false },
+      { value: "Apple", label: "Apple", checked: false },
     ],
   },
   {
     id: "category",
     name: "Category",
     options: [
-      { value: "new-arrivals", label: "New Arrivals", checked: false },
-      { value: "sale", label: "Sale", checked: false },
+      { value: "smartphones", label: "smartphones", checked: false },
+      { value: "laptops", label: "laptops", checked: false },
       { value: "travel", label: "Travel", checked: true },
       { value: "organization", label: "Organization", checked: false },
       { value: "accessories", label: "Accessories", checked: false },
-    ],
-  },
-  {
-    id: "size",
-    name: "Size",
-    options: [
-      { value: "2l", label: "2L", checked: false },
-      { value: "6l", label: "6L", checked: false },
-      { value: "12l", label: "12L", checked: false },
-      { value: "18l", label: "18L", checked: false },
-      { value: "20l", label: "20L", checked: false },
-      { value: "40l", label: "40L", checked: true },
     ],
   },
 ];
@@ -91,24 +79,26 @@ function classNames(...classes) {
 }
 
 export function ProductList() {
-  const count = useSelector(selectCount);
+  //const count = useSelector(selectCount);
   const dispatch = useDispatch();
 
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
 
-  const products = [
-    {
-      id: 1,
-      name: "Basic Tee",
-      href: "#",
-      imageSrc:
-        "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg",
-      imageAlt: "Front of men's Basic Tee in black.",
-      price: "$35",
-      color: "Black",
-    },
-    // More products...
-  ];
+  const products = useSelector(selectAllproduct);
+  const [filter, setFilter] = useState({});
+    
+  const handleFilter = (e, section, option) => {
+    const newFilter = {...filter, [section.id]:option.value  };
+    console.log('newFilter', newFilter)
+    setFilter(newFilter)
+
+    dispatch(fetchProductsByFiltersAsync(newFilter))
+    
+  }
+  
+  useEffect( ()=> {
+    dispatch(fetchAllProductsAsync())
+  }, [dispatch]) 
 
   return (
     <div>
@@ -201,6 +191,7 @@ export function ProductList() {
                                         defaultValue={option.value}
                                         type="checkbox"
                                         defaultChecked={option.checked}
+                                        onChange={e => console.log(e)}
                                         className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                                       />
                                       <label
@@ -343,6 +334,7 @@ export function ProductList() {
                                     defaultValue={option.value}
                                     type="checkbox"
                                     defaultChecked={option.checked}
+                                    onChange={e => handleFilter(e, section, option) }
                                     className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                                   />
                                   <label
@@ -391,7 +383,8 @@ export function ProductList() {
                                   </a>
                                 </h3>
                                 <p className="mt-1 text-sm text-gray-500">
-                                  {product.color}
+                                  <StarIcon></StarIcon>
+                                  {product.rating}
                                 </p>
                               </div>
                               <p className="text-sm font-medium text-gray-900">
