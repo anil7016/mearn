@@ -1,11 +1,16 @@
 import React, { useState } from "react";
+import { useForm } from "react-hook-form";
 import { useSelector, useDispatch } from "react-redux";
-import { increment, selectCount } from "../authSlice";
 import { Link } from "react-router-dom";
 
 export function Login() {
-  const count = useSelector(selectCount);
   const dispatch = useDispatch();
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
 
   return (
     <div>
@@ -31,7 +36,19 @@ export function Login() {
           </div>
 
           <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-            <form className="space-y-6" action="#" method="POST">
+            <form
+              noValidate
+              className="space-y-6"
+              action="#"
+              onSubmit={handleSubmit((data) => {
+                dispatch(
+                  createUserAsync({
+                    email: data.email,
+                    password: data.password,
+                  })
+                );
+              })}
+            >
               <div>
                 <label
                   htmlFor="email"
@@ -42,7 +59,13 @@ export function Login() {
                 <div className="mt-2">
                   <input
                     id="email"
-                    name="email"
+                    {...register("email", {
+                      required: "Email required",
+                      pattern: {
+                        value: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g,
+                        message: "Enter valid email",
+                      },
+                    })}
                     type="email"
                     autoComplete="email"
                     required
@@ -71,7 +94,9 @@ export function Login() {
                 <div className="mt-2">
                   <input
                     id="password"
-                    name="password"
+                    {...register("password", {
+                      required: "Password required",
+                    })}
                     type="password"
                     autoComplete="current-password"
                     required
