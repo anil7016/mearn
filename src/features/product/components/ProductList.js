@@ -26,7 +26,7 @@ import {
   Squares2X2Icon,
 } from "@heroicons/react/20/solid";
 import { ITEMS_PER_PAGE } from "../../../app/constant";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 
 const sortOptions = [
   { name: "Price: Low to High", order: "ASC", sort: "price", current: true },
@@ -508,12 +508,14 @@ const ProductGrid = ({ products }) => {
                 </div>
                 <div className="mt-4 flex justify-between">
                   <div>
-                    <h3 className="text-sm text-gray-700">
-                      <div href={product.thumbnail}>
-                        <span aria-hidden="true" className="absolute inset-0" />
-                        {product.title}
-                      </div>
-                    </h3>
+                    <Link to={`/product-detail/${product.id}`} >
+                      <h3 className="text-sm text-gray-700" >
+                        <div href={product.thumbnail}>
+                          <span aria-hidden="true" className="absolute inset-0" />
+                          {product.title} 
+                        </div>
+                      </h3>
+                    </Link>
                     <p className="mt-1 text-sm text-gray-500">
                       <StarIcon className="w-6 h-6 inline"></StarIcon>
                       <span className=" align-bottom">{product.rating}</span>

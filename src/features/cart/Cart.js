@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { increment, selectCount } from "./cartSlice";
+import { increment, selectCount, selectItems } from "./cartSlice";
 
 import { Dialog, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
@@ -35,8 +35,9 @@ const products = [
 ];
 
 export function Cart() {
-  const count = useSelector(selectCount);
-  const dispatch = useDispatch();
+  // const count = useSelector(selectCount);
+  const dispatch = useDispatch(); 
+  const items = useSelector(selectItems)
 
   const [open, setOpen] = useState(true);
 
@@ -51,7 +52,7 @@ export function Cart() {
             <div className="mt-8">
               <div className="flow-root">
                 <ul role="list" className="-my-6 divide-y divide-gray-200">
-                  {products.map((product) => (
+                  {items.map((product) => (
                     <li key={product.id} className="flex py-6">
                       <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                         <img

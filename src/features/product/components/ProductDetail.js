@@ -3,7 +3,10 @@ import { StarIcon } from "@heroicons/react/20/solid";
 import { RadioGroup } from "@headlessui/react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProductByIdAsync, selectedProductById } from "../productSlice";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import { addToCartAsync } from "../../cart/cartSlice";
+import { selectLoggedInUser } from "../../auth/authSlice";
+import NavBar from "../../navbar/Navbar";
 
 const reviews = { href: "#", average: 4, totalCount: 117 };
 
@@ -35,13 +38,27 @@ const ProductDetail = () => {
   console.log('params', params)
 
   const product = useSelector(selectedProductById);
+  const user = useSelector(selectLoggedInUser)
+  console.log('user', user)
   console.log("product2", product);
+
+  const handleCart = (e) => {
+    e.preventDefault();
+
+    const newItem = {
+      productId : product.id,
+      quantity: 1
+    }
+    dispatch(addToCartAsync({...product, quantity:1, user:user.id}))
+  }
 
   useEffect(() => {
     dispatch(fetchProductByIdAsync(params.id));
   }, [dispatch, params.id]);
 
   return (
+    <>
+    <NavBar ></NavBar>
     <div className="bg-white">
       {
         product && (
@@ -287,12 +304,13 @@ const ProductDetail = () => {
                 </RadioGroup>
               </div>
 
-              <button
+              <button onClick={ handleCart }
                 type="submit"
                 className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
               >
                 Add to bag
               </button>
+              
             </form>
           </div>
 
@@ -334,6 +352,7 @@ const ProductDetail = () => {
         )
       }
     </div>
+    </>
   );
 };
 
