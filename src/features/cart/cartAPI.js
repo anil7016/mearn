@@ -1,5 +1,4 @@
 export function addToCart(item) {
-  console.log('item-api', item)
   return new Promise( async (resolve) => {
       const response = await fetch('http://localhost:8080/cart',{
         method:'POST',
@@ -11,11 +10,38 @@ export function addToCart(item) {
     });
 }
 
-export function fetchItemByUserId(userId) {
-  console.log('userId', userId)
+export function fetchItemByUserId(user) {
+  console.log('userId-fetch', user)
+  let userId = user.id
   return new Promise( async (resolve) => {
       const response = await fetch('http://localhost:8080/cart?user='+userId);
+      console.log('items-response', response)
       const data = await response.json();
       resolve({data})
     });
 }
+
+export function updateCart(update) {
+  console.log('update-api', update)
+  return new Promise( async (resolve) => {
+      const response = await fetch('http://localhost:8080/cart/'+update.id,{
+        method:'PATCH',
+        body: JSON.stringify(update),
+        headers: {'content-type': 'application/json'}
+      });
+      const data = await response.json();
+      resolve({data})
+    });
+}
+
+export function deleteCart(itemId) {
+  return new Promise( async (resolve) => {
+      const response = await fetch('http://localhost:8080/cart/'+itemId,{
+        method:'DELETE',
+        headers: {'content-type': 'application/json'}
+      });
+      const data = await response.json();
+      resolve({data : {id : itemId} })
+    });
+}
+

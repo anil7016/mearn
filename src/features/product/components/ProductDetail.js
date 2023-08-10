@@ -35,21 +35,20 @@ const ProductDetail = () => {
   const [selectedColor, setSelectedColor] = useState(colors[0]);
   const [selectedSize, setSelectedSize] = useState(sizes[2]);
   const params = useParams();
-  console.log('params', params)
 
   const product = useSelector(selectedProductById);
   const user = useSelector(selectLoggedInUser)
-  console.log('user', user)
-  console.log("product2", product);
 
   const handleCart = (e) => {
     e.preventDefault();
 
-    const newItem = {
-      productId : product.id,
-      quantity: 1
-    }
-    dispatch(addToCartAsync({...product, quantity:1, user:user.id}))
+    // const newItem = {
+    //   productId : product.id,
+    //   quantity: 1
+    // }
+    const newItem = {...product, quantity:1, user:user.id}
+    delete newItem['id']
+    dispatch(addToCartAsync( newItem ))
   }
 
   useEffect(() => {
