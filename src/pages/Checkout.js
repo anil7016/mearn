@@ -1,8 +1,4 @@
 import React, { useState } from "react";
-import { UserCircleIcon, PhotoIcon } from "@heroicons/react/24/outline";
-
-import { Dialog, Transition } from "@headlessui/react";
-import { XMarkIcon } from "@heroicons/react/24/outline";
 import { Link, Navigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -15,14 +11,13 @@ import {
   selectLoggedInUser,
   updateUserAsync,
 } from "../features/auth/authSlice";
-import { createOrderAsync } from "../features/order/orderSlice";
-import { useEffect } from "react";
-//import { data } from "autoprefixer";
+import { createOrderAsync, selectCurrentOrder } from "../features/order/orderSlice";
 
 const Checkout = () => {
   const dispatch = useDispatch();
   const items = useSelector(selectItems);
   const user = useSelector(selectLoggedInUser);
+  const currentOrder = useSelector(selectCurrentOrder);
 
   const {
     register,
@@ -37,7 +32,8 @@ const Checkout = () => {
   const totalItems = items.reduce((total, item) => item.quantity + total, 0);
 
   const [selectedAddress, setSelectedAddress] = useState(null);
-  const [selectPayment, setSelectedPayment] = useState(null);
+  const [paymentMethod, setPaymentMethod] = useState(null);
+  console.log('paymentMethod', paymentMethod)
 
   const handleQuantity = (e, item) => {
     dispatch(updateCartAsync({ ...item, quantity: +e.target.value }));
@@ -53,14 +49,27 @@ const Checkout = () => {
     console.log('address-default', e.target.value)
   } 
   const handlePayment = (e) => {
-    setSelectedPayment(e.target.value);
+    setPaymentMethod(e.target.value);
     console.log('e.target.value', e.target.value)
   }
 
   const handleOrder = (e) => {
-    const orders = { items: {...items}, user: {...user}, totalAmount: totalAmount, totalItems: totalItems, paymentMethod: selectPayment, selectedAddress : selectedAddress  }
-    console.log('orderDetails', orders)
-    dispatch( createOrderAsync({orders}))
+    if(paymentMethod && selectedAddress){
+    const order = {
+      items,
+      totalAmount,
+      totalItems,
+      user: user.id,
+      paymentMethod,
+      selectedAddress,
+      status: 'pending', // other status can be delivered, received.
+    };
+    //const orders = { items: {...items}, user: {...user}, totalAmount: totalAmount, totalItems: totalItems, paymentMethod: paymentMethod, selectedAddress : selectedAddress  }
+    console.log('orderDetails', order)
+    dispatch( createOrderAsync({order}))
+  }else{
+    alert('Please select Payment method and address')
+  }
   }
 
   // useEffect( ()=> {
@@ -70,6 +79,7 @@ const Checkout = () => {
   return (
     <>
       {!items.length && <Navigate to="/"></Navigate>}
+      { currentOrder && <Navigate to={`/order-success/${currentOrder.id}`}></Navigate> }
       <div>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-5">
@@ -311,6 +321,7 @@ const Checkout = () => {
                           name="payments"
                           value="cash"
                           type="radio"
+                          checked={ (paymentMethod==='cash') }
                           className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
                         />
                         <label
@@ -327,6 +338,7 @@ const Checkout = () => {
                           name="payments"
                           value="card"
                           type="radio"
+                          checked={ (paymentMethod==='card') }
                           className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
                         />
                         <label

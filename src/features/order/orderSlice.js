@@ -3,6 +3,7 @@ import { createOrder } from './orderAPI';
 
 const initialState = {
   orders: [],
+  currentOrder: null,
   status: 'idle',
 };
 
@@ -29,12 +30,12 @@ export const orderSlice = createSlice({
       .addCase(createOrderAsync.fulfilled, (state, action) => {
         state.status = 'idle';
         state.orders.push(action.payload);
+        state.currentOrder = action.payload
       });
   },
 });
 
-export const { increment } = orderSlice.actions;
-
 export const selectorders = (state) => state.order.orders;
+export const selectCurrentOrder = (state) => state.order.currentOrder
 
 export default orderSlice.reducer;
