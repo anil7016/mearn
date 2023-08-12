@@ -2398,8 +2398,18 @@
     },
     {
       "email": "admin@gmail.com",
-      "password": "Qwerty123",
-      "addresses": [],
+      "password": "Admin@123",
+      "addresses": [
+        {
+          "name": "Admin uday",
+          "email": "uday@gmail.com",
+          "phone": "8837636744",
+          "address": "KONSTITUCIJOS AVE. 21B,  VILNIUS, Lithuania",
+          "city": "Mehsana",
+          "region": "Becharaji",
+          "pinCode": "384210"
+        }
+      ],
       "role": "admin",
       "id": 3
     },
@@ -2484,248 +2494,57 @@
     {
       "items": [
         {
-          "title": "iPhone X",
-          "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
-          "price": 899,
-          "discountPercentage": 17.94,
-          "rating": 4.44,
-          "stock": 34,
-          "brand": "Apple",
-          "category": "smartphones",
-          "imageSrc": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
+          "title": "Skin Beauty Serum.",
+          "description": "Product name: rorec collagen hyaluronic acid white face serum riceNet weight: 15 m",
+          "price": 46,
+          "discountPercentage": 10.68,
+          "rating": 4.42,
+          "stock": 54,
+          "brand": "ROREC White Rice",
+          "category": "skincare",
+          "imageSrc": "https://i.dummyjson.com/data/products/19/thumbnail.jpg",
           "images": [
-            "https://i.dummyjson.com/data/products/2/1.jpg",
-            "https://i.dummyjson.com/data/products/2/2.jpg",
-            "https://i.dummyjson.com/data/products/2/3.jpg",
-            "https://i.dummyjson.com/data/products/2/thumbnail.jpg"
+            "https://i.dummyjson.com/data/products/19/1.jpg",
+            "https://i.dummyjson.com/data/products/19/2.jpg",
+            "https://i.dummyjson.com/data/products/19/3.png",
+            "https://i.dummyjson.com/data/products/19/thumbnail.jpg"
           ],
-          "quantity": 2,
-          "user": 1,
-          "id": 6
+          "quantity": 3,
+          "user": 3,
+          "id": 71
         }
       ],
-      "totalAmount": 1798,
-      "totalItems": 2,
+      "totalAmount": 138,
+      "totalItems": 3,
       "user": {
-        "email": "test@gmail.com",
-        "password": "Qwerty123",
+        "email": "admin@gmail.com",
+        "password": "Admin@123",
         "addresses": [
           {
-            "name": "Abhishek R",
-            "email": "test@gmail.com",
-            "phone": "1234567788",
-            "street": "11th Main",
-            "city": "Banaglore",
-            "state": "Karnataka",
-            "pinCode": "560034"
-          },
-          {
-            "name": "Abhishek R",
-            "email": "test@gmail.com",
-            "phone": "1234567788",
-            "street": "11th Main",
-            "city": "Banaglore",
-            "state": "Karnataka",
-            "pinCode": "560034"
+            "name": "Admin uday",
+            "email": "uday@gmail.com",
+            "phone": "8837636744",
+            "address": "KONSTITUCIJOS AVE. 21B,  VILNIUS, Lithuania",
+            "city": "Mehsana",
+            "region": "Becharaji",
+            "pinCode": "384210"
           }
         ],
-        "id": 1
+        "role": "admin",
+        "id": 3
       },
-      "paymentMethod": "cash",
+      "paymentMethod": "card",
       "selectedAddress": {
-        "name": "Abhishek R",
-        "email": "test@gmail.com",
-        "phone": "1234567788",
-        "street": "11th Main",
-        "city": "Banaglore",
-        "state": "Karnataka",
-        "pinCode": "560034"
+        "name": "Admin uday",
+        "email": "uday@gmail.com",
+        "phone": "8837636744",
+        "address": "KONSTITUCIJOS AVE. 21B,  VILNIUS, Lithuania",
+        "city": "Mehsana",
+        "region": "Becharaji",
+        "pinCode": "384210"
       },
-      "status": "dispatched",
+      "status": "pending",
       "id": 1
-    },
-    {
-      "orders": {
-        "items": {
-          "0": {
-            "id": 70,
-            "title": "Stainless Steel Women",
-            "description": "Fashion Skmei 1830 Shell Dial Stainless Steel Women Wrist Watch Lady Bracelet Watch Quartz Watches Ladies",
-            "price": 35,
-            "discountPercentage": 8.98,
-            "rating": 4.08,
-            "stock": 111,
-            "brand": "Bracelet",
-            "category": "womens-watches",
-            "imageSrc": "https://i.dummyjson.com/data/products/70/thumbnail.jpg",
-            "images": [
-              "https://i.dummyjson.com/data/products/70/1.jpg",
-              "https://i.dummyjson.com/data/products/70/2.jpg",
-              "https://i.dummyjson.com/data/products/70/thumbnail.jpg"
-            ],
-            "quantity": 2,
-            "user": 4
-          }
-        },
-        "user": {
-          "email": "anil@gmail.com",
-          "password": "Anil@123",
-          "addresses": [
-            {
-              "name": "Anil B Nadiya",
-              "email": "anil.kanhasoft@gmail.com",
-              "phone": "9737636750",
-              "address": "Frankfurt am Main, Nrv",
-              "city": "Oslo-1",
-              "region": "Gujarat",
-              "pinCode": "372424"
-            },
-            {
-              "name": "anil nadiya",
-              "email": "anil.kanha@gmail.com",
-              "phone": "9737636755",
-              "address": "CHandkeda",
-              "city": "Ahmedabad",
-              "region": "Gujarat",
-              "pinCode": "384210"
-            }
-          ],
-          "id": 4
-        },
-        "totalAmount": 70,
-        "totalItems": 2,
-        "paymentMethod": "cash",
-        "selectedAddress": {
-          "name": "Anil B Nadiya",
-          "email": "anil.kanhasoft@gmail.com",
-          "phone": "9737636750",
-          "address": "Frankfurt am Main, Nrv",
-          "city": "Oslo-1",
-          "region": "Gujarat",
-          "pinCode": "372424"
-        }
-      },
-      "id": 2
-    },
-    {
-      "order": {
-        "items": [
-          {
-            "id": 70,
-            "title": "Stainless Steel Women",
-            "description": "Fashion Skmei 1830 Shell Dial Stainless Steel Women Wrist Watch Lady Bracelet Watch Quartz Watches Ladies",
-            "price": 35,
-            "discountPercentage": 8.98,
-            "rating": 4.08,
-            "stock": 111,
-            "brand": "Bracelet",
-            "category": "womens-watches",
-            "imageSrc": "https://i.dummyjson.com/data/products/70/thumbnail.jpg",
-            "images": [
-              "https://i.dummyjson.com/data/products/70/1.jpg",
-              "https://i.dummyjson.com/data/products/70/2.jpg",
-              "https://i.dummyjson.com/data/products/70/thumbnail.jpg"
-            ],
-            "quantity": 2,
-            "user": 4
-          }
-        ],
-        "totalAmount": 70,
-        "totalItems": 2,
-        "user": 4,
-        "paymentMethod": "card",
-        "selectedAddress": {
-          "name": "Anil B Nadiya",
-          "email": "anil.kanhasoft@gmail.com",
-          "phone": "9737636750",
-          "address": "Frankfurt am Main, Nrv",
-          "city": "Oslo-1",
-          "region": "Gujarat",
-          "pinCode": "372424"
-        },
-        "status": "pending"
-      },
-      "id": 3
-    },
-    {
-      "order": {
-        "items": [
-          {
-            "id": 70,
-            "title": "Stainless Steel Women",
-            "description": "Fashion Skmei 1830 Shell Dial Stainless Steel Women Wrist Watch Lady Bracelet Watch Quartz Watches Ladies",
-            "price": 35,
-            "discountPercentage": 8.98,
-            "rating": 4.08,
-            "stock": 111,
-            "brand": "Bracelet",
-            "category": "womens-watches",
-            "imageSrc": "https://i.dummyjson.com/data/products/70/thumbnail.jpg",
-            "images": [
-              "https://i.dummyjson.com/data/products/70/1.jpg",
-              "https://i.dummyjson.com/data/products/70/2.jpg",
-              "https://i.dummyjson.com/data/products/70/thumbnail.jpg"
-            ],
-            "quantity": 2,
-            "user": 4
-          }
-        ],
-        "totalAmount": 70,
-        "totalItems": 2,
-        "user": 4,
-        "paymentMethod": "cash",
-        "selectedAddress": {
-          "name": "anil nadiya",
-          "email": "anil.kanha@gmail.com",
-          "phone": "9737636755",
-          "address": "CHandkeda",
-          "city": "Ahmedabad",
-          "region": "Gujarat",
-          "pinCode": "384210"
-        },
-        "status": "pending"
-      },
-      "id": 4
-    },
-    {
-      "order": {
-        "items": [
-          {
-            "id": 70,
-            "title": "Stainless Steel Women",
-            "description": "Fashion Skmei 1830 Shell Dial Stainless Steel Women Wrist Watch Lady Bracelet Watch Quartz Watches Ladies",
-            "price": 35,
-            "discountPercentage": 8.98,
-            "rating": 4.08,
-            "stock": 111,
-            "brand": "Bracelet",
-            "category": "womens-watches",
-            "imageSrc": "https://i.dummyjson.com/data/products/70/thumbnail.jpg",
-            "images": [
-              "https://i.dummyjson.com/data/products/70/1.jpg",
-              "https://i.dummyjson.com/data/products/70/2.jpg",
-              "https://i.dummyjson.com/data/products/70/thumbnail.jpg"
-            ],
-            "quantity": 2,
-            "user": 4
-          }
-        ],
-        "totalAmount": 70,
-        "totalItems": 2,
-        "user": 4,
-        "paymentMethod": "cash",
-        "selectedAddress": {
-          "name": "Anil B Nadiya",
-          "email": "anil.kanhasoft@gmail.com",
-          "phone": "9737636750",
-          "address": "Frankfurt am Main, Nrv",
-          "city": "Oslo-1",
-          "region": "Gujarat",
-          "pinCode": "372424"
-        },
-        "status": "pending"
-      },
-      "id": 5
     }
   ]
 }

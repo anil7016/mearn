@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import './App.css';
-import {Counter} from './features/counter/Counter'
 //import { ProductList } from './features/product-list/ProductList';
 import Home from './pages/Home';
 import LoginPage from './pages/LoginPage';
@@ -22,6 +21,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectLoggedInUser } from './features/auth/authSlice';
 import PageNotFound from './pages/404';
 import OrderSuccessPage from './pages/OrderSuccess';
+import UserOrdersPage from './pages/UserOrdersPage';
 
 const router = createBrowserRouter([
   {
@@ -51,6 +51,10 @@ const router = createBrowserRouter([
   {
     path: "order-success/:id",
     element: <OrderSuccessPage ></OrderSuccessPage>,
+  },
+  {
+    path: "my-orders",
+    element: <UserOrdersPage></UserOrdersPage>,
   },
   {
     path: "*",

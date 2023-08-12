@@ -55,18 +55,26 @@ const Checkout = () => {
 
   const handleOrder = (e) => {
     if(paymentMethod && selectedAddress){
+    // const order = {
+    //   items,
+    //   totalAmount,
+    //   totalItems,
+    //   user: user.id,
+    //   paymentMethod,
+    //   selectedAddress,
+    //   status: 'pending', // other status can be delivered, received.
+    // };
     const order = {
       items,
       totalAmount,
       totalItems,
-      user: user.id,
+      user,
       paymentMethod,
       selectedAddress,
-      status: 'pending', // other status can be delivered, received.
+      status: 'pending' // other status can be delivered, received.
     };
-    //const orders = { items: {...items}, user: {...user}, totalAmount: totalAmount, totalItems: totalItems, paymentMethod: paymentMethod, selectedAddress : selectedAddress  }
     console.log('orderDetails', order)
-    dispatch( createOrderAsync({order}))
+    dispatch( createOrderAsync(order))
   }else{
     alert('Please select Payment method and address')
   }

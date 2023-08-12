@@ -20,6 +20,9 @@ export const orderSlice = createSlice({
   initialState,
   // The `reducers` field lets us define reducers and generate associated actions
   reducers: {
+    resetOrder: (state) => {
+      state.currentOrder = null
+    }
   },
 
   extraReducers: (builder) => {
@@ -35,6 +38,7 @@ export const orderSlice = createSlice({
   },
 });
 
+export const resetOrder = orderSlice.actions; 
 export const selectorders = (state) => state.order.orders;
 export const selectCurrentOrder = (state) => state.order.currentOrder
 
