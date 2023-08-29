@@ -43,14 +43,17 @@ export function fetchProductsByFilters(filter, sort, pagination) {
     const npage = filter.pagination
     queryString += `${key}=${npage[key]}&` 
   }
-  //console.log('queryString', queryString)
+  console.log('queryString', queryString)
     
   return new Promise( async (resolve) => {
       // todo we will not do hardcode.
       const response = await fetch('http://localhost:8080/products?'+queryString);
+      //const response = await fetch('http://localhost:8080/products?_page=1&limit=10');
+      
       const data = await response.json();
+      console.log('products-data', data)
       const totalItems = await response.headers.get('X-Total-Count');
-      resolve({ data: { products: data, totalItems: +totalItems } });
+      resolve({ data: { products: data, totalItems: totalItems } });
     });
 }
 

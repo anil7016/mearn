@@ -127,7 +127,8 @@ export function ProductList() {
 
   useEffect(() => {
     //dispatch(fetchAllProductsAsync());
-    const pagination = { _page: page, _limit: ITEMS_PER_PAGE };
+    //const pagination = { _page: page, _limit: ITEMS_PER_PAGE };
+    const pagination = { _page: page, limit: ITEMS_PER_PAGE };
     dispatch(fetchProductsByFiltersAsync({ filter, sort, pagination }));
   }, [dispatch, filter, sort, page]);
 
@@ -488,6 +489,7 @@ const Pagination = ({ page, setPage, handlePage, totalItems }) => {
 };
 
 const ProductGrid = ({ products }) => {
+  
   return (
     <div className="lg:col-span-3">
       <div className="bg-white">
@@ -501,7 +503,7 @@ const ProductGrid = ({ products }) => {
               <div key={product.id} className="group relative">
                 <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
                   <img
-                    src={product.imageSrc}
+                    src={product.thumbnail}
                     alt={product.imageAlt}
                     className="h-full w-full object-cover object-center lg:h-full lg:w-full"
                   />

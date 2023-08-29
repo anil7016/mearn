@@ -2469,25 +2469,6 @@
       "quantity": 1,
       "user": 2,
       "id": 1
-    },
-    {
-      "id": 70,
-      "title": "Stainless Steel Women",
-      "description": "Fashion Skmei 1830 Shell Dial Stainless Steel Women Wrist Watch Lady Bracelet Watch Quartz Watches Ladies",
-      "price": 35,
-      "discountPercentage": 8.98,
-      "rating": 4.08,
-      "stock": 111,
-      "brand": "Bracelet",
-      "category": "womens-watches",
-      "imageSrc": "https://i.dummyjson.com/data/products/70/thumbnail.jpg",
-      "images": [
-        "https://i.dummyjson.com/data/products/70/1.jpg",
-        "https://i.dummyjson.com/data/products/70/2.jpg",
-        "https://i.dummyjson.com/data/products/70/thumbnail.jpg"
-      ],
-      "quantity": 2,
-      "user": 4
     }
   ],
   "orders": [
@@ -2545,6 +2526,68 @@
       },
       "status": "pending",
       "id": 1
+    },
+    {
+      "items": [
+        {
+          "id": 70,
+          "title": "Stainless Steel Women",
+          "description": "Fashion Skmei 1830 Shell Dial Stainless Steel Women Wrist Watch Lady Bracelet Watch Quartz Watches Ladies",
+          "price": 35,
+          "discountPercentage": 8.98,
+          "rating": 4.08,
+          "stock": 111,
+          "brand": "Bracelet",
+          "category": "womens-watches",
+          "imageSrc": "https://i.dummyjson.com/data/products/70/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/70/1.jpg",
+            "https://i.dummyjson.com/data/products/70/2.jpg",
+            "https://i.dummyjson.com/data/products/70/thumbnail.jpg"
+          ],
+          "quantity": 2,
+          "user": 4
+        }
+      ],
+      "totalAmount": 70,
+      "totalItems": 2,
+      "user": {
+        "email": "anil@gmail.com",
+        "password": "Anil@123",
+        "addresses": [
+          {
+            "name": "Anil B Nadiya",
+            "email": "anil.kanhasoft@gmail.com",
+            "phone": "9737636750",
+            "address": "Frankfurt am Main, Nrv",
+            "city": "Oslo-1",
+            "region": "Gujarat",
+            "pinCode": "372424"
+          },
+          {
+            "name": "anil nadiya",
+            "email": "anil.kanha@gmail.com",
+            "phone": "9737636755",
+            "address": "CHandkeda",
+            "city": "Ahmedabad",
+            "region": "Gujarat",
+            "pinCode": "384210"
+          }
+        ],
+        "id": 4
+      },
+      "paymentMethod": "cash",
+      "selectedAddress": {
+        "name": "Anil B Nadiya",
+        "email": "anil.kanhasoft@gmail.com",
+        "phone": "9737636750",
+        "address": "Frankfurt am Main, Nrv",
+        "city": "Oslo-1",
+        "region": "Gujarat",
+        "pinCode": "372424"
+      },
+      "status": "pending",
+      "id": 2
     }
   ]
 }
