@@ -17,11 +17,10 @@ const user = {
     "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
 };
 const navigation = [
-  { name: "Dashboard", link: "#", current: true },
-  { name: "Team", link: "#", current: false },
-  { name: "Projects", link: "#", current: false },
-  { name: "Calendar", link: "#", current: false },
-  { name: "Reports", link: "#", current: false },
+  { name: "Home", link: "#", current: false },
+  { name: "Products", link: "#", current: false },
+  { name: "About", link: "#", current: false },
+  { name: "Contact", link: "#", current: false },
 ];
 const userNavigation = [
   { name: "Your Profile", link: "#" },
@@ -229,9 +228,11 @@ const NavBar = ({ children }) => {
 
         <header className="bg-white shadow">
           <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+            <Link to='/'>
             <h1 className="text-3xl font-bold tracking-tight text-gray-900">
               TMS
             </h1>
+            </Link>
           </div>
         </header>
         <main>

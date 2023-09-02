@@ -30,32 +30,7 @@ import { Link, Navigate } from "react-router-dom";
 
 const sortOptions = [
   { name: "Price: Low to High", order: "ASC", sort: "price", current: true },
-  { name: "Price: High to Low", order: "DESC", sort: "price", current: true },
-  { name: "Best Rating", order: "DESC", sort: "rating", current: true },
-];
-
-const items = [
-  {
-    id: 1,
-    title: "Back End Developer",
-    department: "Engineering",
-    type: "Full-time",
-    location: "Remote",
-  },
-  {
-    id: 2,
-    title: "Front End Developer",
-    department: "Engineering",
-    type: "Full-time",
-    location: "Remote",
-  },
-  {
-    id: 3,
-    title: "User Interface Designer",
-    department: "Design",
-    type: "Full-time",
-    location: "Remote",
-  },
+  { name: "Price: High to Low", order: "DESC", sort: "price", current: true }
 ];
 
 function classNames(...classes) {

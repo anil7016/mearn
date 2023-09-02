@@ -20,14 +20,11 @@ const colors = [
   { name: "Black", class: "bg-gray-900", selectedClass: "ring-gray-900" },
 ];
 const sizes = [
-  { name: "XXS", inStock: false },
-  { name: "XS", inStock: true },
   { name: "S", inStock: true },
   { name: "M", inStock: true },
   { name: "L", inStock: true },
   { name: "XL", inStock: true },
-  { name: "2XL", inStock: true },
-  { name: "3XL", inStock: true },
+  { name: "2XL", inStock: false },
 ];
 
 const ProductDetail = () => {
@@ -42,13 +39,16 @@ const ProductDetail = () => {
   const handleCart = (e) => {
     e.preventDefault();
 
-    // const newItem = {
-    //   productId : product.id,
-    //   quantity: 1
-    // }
-    const newItem = {...product, quantity:1, user:user.id}
-    delete newItem['id']
-    dispatch(addToCartAsync( newItem ))
+    const newItem = {
+      quantity: 1,
+      product : product.id,
+      user: user.id,
+      size: '1',
+      color: '1'
+    }
+    //const newItem = {...product, quantity:1, user:user.id}
+    //delete newItem['id']
+    dispatch(addToCartAsync( {item:newItem} ))
   }
 
   useEffect(() => {
@@ -92,6 +92,7 @@ const ProductDetail = () => {
               ))}
             <li className="text-sm">
               <a
+                href="#"
                 aria-current="page"
                 className="font-medium text-gray-500 hover:text-gray-600"
               >
