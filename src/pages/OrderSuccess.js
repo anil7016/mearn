@@ -14,7 +14,7 @@ const OrderSuccessPage = () => {
 
   useEffect( ()=>{
     dispatch(resetCartAsync(user))
-    dispatch(resetOrder());
+    dispatch(resetOrder())
   }, [dispatch,user])
 
   return (
@@ -29,7 +29,7 @@ const OrderSuccessPage = () => {
           Order Successfully place
         </h1>
         <p className="mt-6 text-base leading-7 text-gray-600">
-          Your order # 00{params.id}
+          Your order # 00{params?.id}
         </p>
         <div className="mt-10 flex items-center justify-center gap-x-6">
           <Link

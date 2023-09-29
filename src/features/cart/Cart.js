@@ -20,7 +20,8 @@ export function Cart() {
   const [open, setOpen] = useState(true);
 
   const handleQuantity = (e, item) => {
-    dispatch(updateCartAsync({ ...item, quantity: +e.target.value }));
+    dispatch(updateCartAsync({ id:item.id, quantity: +e.target.value }));
+    //dispatch(updateCartAsync({ ...item, quantity: +e.target.value }));
   };
 
   const handleDelete = (e, itemId) => {
